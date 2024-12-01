@@ -1,0 +1,12 @@
+[
+    {
+        "apiKey": "service1",
+        "rateLimit": 3,
+        "windowSize": 5
+    },
+    {
+        "apiKey": "service2",
+        "rateLimit": 20,
+        "windowSize": 30
+    }
+]
