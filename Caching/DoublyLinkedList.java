@@ -11,7 +11,7 @@ public class DoublyLinkedList {
         tail.prev = head;
     }
 
-    private void addNode(DLLNode node){
+    public void addNode(DLLNode node){
         node.prev = head;
         node.next = head.next;
 
@@ -20,7 +20,7 @@ public class DoublyLinkedList {
         
     }
 
-    private void removeNode(DLLNode node){
+    public void removeNode(DLLNode node){
         DLLNode left = node.prev;
         DLLNode right = node.next;
         if(left == null && right == null){
@@ -42,5 +42,16 @@ public class DoublyLinkedList {
         removeNode(node);
         return node;
 
+    }
+
+    public DLLNode removeFromHead(){
+        DLLNode nextNode = head.next;
+        removeNode(nextNode);
+        return nextNode;
+
+    }
+
+    public boolean isEmpty(){
+        return head.next == tail;
     }
 }
