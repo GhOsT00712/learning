@@ -11,9 +11,8 @@ public class RequestLog {
     }
 
     public void addLog(long lastRequestTime, int requestCount) {
-        requestLog.putIfAbsent(lastRequestTime, requestCount);
-        requestCount += requestLog.get(lastRequestTime);
-        requestLog.put(lastRequestTime, requestCount);
+        int existingCount = requestLog.getOrDefault(lastRequestTime, 0);
+        requestLog.put(lastRequestTime, existingCount + requestCount);
     }
 
     public Map<Long,Integer> getRequestLog() {
