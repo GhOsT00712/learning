@@ -14,7 +14,8 @@ public class ConfigurationService {
         Map<String, Configuration> configMap = new HashMap<>();
         Gson gson = new Gson();
         
-        try (FileReader reader = new FileReader("RateLimiter\\config.json")) {
+        String configPath = java.nio.file.Paths.get("RateLimiter", "config.json").toString();
+        try (FileReader reader = new FileReader(configPath)) {
             JsonElement jsonElement = new JsonStreamParser(reader).next();
             if (jsonElement.isJsonArray()) {
                 for (JsonElement element : jsonElement.getAsJsonArray()) {

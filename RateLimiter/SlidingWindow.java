@@ -30,7 +30,7 @@ public class SlidingWindow implements IRateLimiter {
         for(Map.Entry<Long,Integer> entry : log.getRequestLog().entrySet()) {
             if(entry.getKey() >= startTime) {
                 totalRequests += entry.getValue();
-                if(totalRequests > config.getRateLimit()) {
+                if(totalRequests >= config.getRateLimit()) {
                     return false;
                 }
             }
